@@ -23,7 +23,7 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
       layoutId={`project-${project.id}`}
       onClick={() => onClick(project)}
       className={cn(
-        'group relative overflow-hidden rounded-2xl bg-zinc-900 cursor-pointer border border-white/5',
+        'group relative overflow-hidden rounded-2xl bg-teal-dark/40 cursor-pointer border border-white/10',
         sizeClasses[project.size]
       )}
       whileHover={{ scale: 1.02 }}
@@ -33,31 +33,31 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
       <img
         src={project.thumbnail}
         alt={project.title}
-        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70 group-hover:opacity-100"
         referrerPolicy="no-referrer"
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-90" />
+      <div className="absolute inset-0 bg-gradient-to-t from-teal-dark/90 via-teal-dark/20 to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-90" />
 
       {/* Content */}
       <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
         <div className="flex items-center gap-2 mb-2">
-          <span className="px-2 py-1 text-[10px] font-semibold uppercase tracking-wider bg-white/10 backdrop-blur-md rounded-full text-white/80 border border-white/10">
+          <span className="px-2 py-1 text-[10px] font-semibold uppercase tracking-wider bg-gold/20 backdrop-blur-md rounded-full text-gold-light border border-gold/20">
             {project.category}
           </span>
           {project.type === 'video' ? (
-            <Play className="w-3 h-3 text-white/60 fill-white/60" />
+            <Play className="w-3 h-3 text-gold-light fill-gold-light" />
           ) : project.type === 'image' ? (
-            <ImageIcon className="w-3 h-3 text-white/60" />
+            <ImageIcon className="w-3 h-3 text-gold-light" />
           ) : (
-            <ExternalLink className="w-3 h-3 text-white/60" />
+            <ExternalLink className="w-3 h-3 text-gold-light" />
           )}
         </div>
-        <h3 className="text-lg md:text-xl font-bold text-white leading-tight">
+        <h3 className="text-lg md:text-xl font-bold text-off-white leading-tight">
           {project.title}
         </h3>
-        <p className="mt-1 text-sm text-white/60 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <p className="mt-1 text-sm text-off-white/60 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           {project.description}
         </p>
       </div>

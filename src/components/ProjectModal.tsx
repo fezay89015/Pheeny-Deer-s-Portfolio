@@ -28,7 +28,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
-          className="relative w-full max-w-5xl overflow-hidden rounded-3xl bg-zinc-900 border border-white/10 shadow-2xl"
+          className="relative w-full max-w-5xl overflow-hidden rounded-3xl bg-teal-dark border border-white/10 shadow-2xl"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close Button */}
@@ -39,45 +39,75 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             <X className="w-6 h-6" />
           </button>
 
-          <div className="flex flex-col md:flex-row h-full max-h-[90vh]">
+          <div className="flex flex-col md:flex-row h-full max-h-[90vh] overflow-hidden">
             {/* Media Section */}
-            <div className="flex-1 bg-black flex items-center justify-center overflow-hidden">
-              {project.type === 'video' && project.url ? (
-                <iframe
-                  src={project.url}
-                  className="w-full aspect-video"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
+            <div className="flex-1 bg-black overflow-y-auto custom-scrollbar">
+              {project.content && project.content.length > 0 ? (
+                <div className="flex flex-col gap-4 p-4">
+                  {project.content.map((item, index) => (
+                    <div key={index} className="w-full">
+                      {item.type === 'video' ? (
+                        <iframe
+                          src={item.value}
+                          className="w-full aspect-video rounded-xl"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        />
+                      ) : item.type === 'image' ? (
+                        <img
+                          src={item.value}
+                          alt={`${project.title} detail ${index}`}
+                          className="w-full h-auto rounded-xl object-contain"
+                          referrerPolicy="no-referrer"
+                        />
+                      ) : (
+                        <div className="p-6 text-off-white/80 leading-relaxed text-lg bg-white/5 rounded-xl">
+                          {item.value}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
               ) : (
-                <img
-                  src={project.thumbnail}
-                  alt={project.title}
-                  className="w-full h-full object-contain"
-                  referrerPolicy="no-referrer"
-                />
+                <div className="h-full flex items-center justify-center">
+                  {project.type === 'video' && project.url ? (
+                    <iframe
+                      src={project.url}
+                      className="w-full aspect-video"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  ) : (
+                    <img
+                      src={project.thumbnail}
+                      alt={project.title}
+                      className="w-full h-full object-contain"
+                      referrerPolicy="no-referrer"
+                    />
+                  )}
+                </div>
               )}
             </div>
 
             {/* Info Section */}
-            <div className="w-full md:w-80 p-6 md:p-8 flex flex-col justify-between bg-zinc-900 border-l border-white/5">
+            <div className="w-full md:w-96 p-6 md:p-8 flex flex-col bg-teal-dark border-l border-white/5 overflow-y-auto custom-scrollbar">
               <div>
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-white/10 rounded-full text-white/80">
+                  <span className="px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-gold/20 rounded-full text-gold-light">
                     {project.category}
                   </span>
                   {project.type === 'video' ? (
-                    <Play className="w-4 h-4 text-white/60 fill-white/60" />
+                    <Play className="w-4 h-4 text-gold-light fill-gold-light" />
                   ) : project.type === 'image' ? (
-                    <ImageIcon className="w-4 h-4 text-white/60" />
+                    <ImageIcon className="w-4 h-4 text-gold-light" />
                   ) : (
-                    <ExternalLink className="w-4 h-4 text-white/60" />
+                    <ExternalLink className="w-4 h-4 text-gold-light" />
                   )}
                 </div>
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                <h2 className="text-2xl md:text-3xl font-bold text-off-white mb-4">
                   {project.title}
                 </h2>
-                <p className="text-white/60 leading-relaxed">
+                <p className="text-off-white/60 leading-relaxed">
                   {project.description}
                 </p>
               </div>
@@ -87,7 +117,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-8 flex items-center justify-center gap-2 w-full py-4 bg-white text-black font-bold rounded-2xl hover:bg-zinc-200 transition-colors"
+                  className="mt-8 flex items-center justify-center gap-2 w-full py-4 bg-gold text-teal-dark font-bold rounded-2xl hover:bg-gold-light transition-colors"
                 >
                   View Project <ExternalLink className="w-4 h-4" />
                 </a>
