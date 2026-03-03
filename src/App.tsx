@@ -18,8 +18,8 @@ import { ProjectCard } from './components/ProjectCard';
 import { ProjectModal } from './components/ProjectModal';
 import { cn } from './lib/utils';
 // --- Configuration: Update your image URLs here ---
-const LOGO_URL = "https://picsum.photos/seed/deer-logo/200/200"; 
-const ABOUT_IMAGE_URL = "https://picsum.photos/seed/pheeny-portrait/800/1000";
+const LOGO_URL = "https://raw.githubusercontent.com/Hare2353363/Pheeny-Deer-s-Portfolio/main/public/PheenyDeer_1.png"; 
+const ABOUT_IMAGE_URL = "https://raw.githubusercontent.com/Hare2353363/Pheeny-Deer-s-Portfolio/main/public/me.jpg";
 
 // --- Background Decorations ---
 const FourPointStar = ({ size = 16, className = "" }: { size?: number; className?: string }) => (
