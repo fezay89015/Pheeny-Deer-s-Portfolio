@@ -18,8 +18,8 @@ import { ProjectCard } from './components/ProjectCard';
 import { ProjectModal } from './components/ProjectModal';
 import { cn } from './lib/utils';
 // --- Configuration: Update your image URLs here ---
-const LOGO_URL = "/PheenyDeer_1.png"; 
-const ABOUT_IMAGE_URL = "/me.jpg";
+const LOGO_URL = "https://raw.githubusercontent.com/Hare2353363/portfolio-assets/main/PheenyDeer_1.png"; 
+const ABOUT_IMAGE_URL = "https://raw.githubusercontent.com/Hare2353363/portfolio-assets/main/me.jpg";
 
 // --- Background Decorations ---
 const FourPointStar = ({ size = 16, className = "" }: { size?: number; className?: string }) => (
