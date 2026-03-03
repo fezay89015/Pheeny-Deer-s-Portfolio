@@ -18,13 +18,9 @@ import { ProjectCard } from './components/ProjectCard';
 import { ProjectModal } from './components/ProjectModal';
 import { cn } from './lib/utils';
 
-// Import local images
-import meImage from './images/me.jpg';
-import deerLogo from './images/PheenyDeer_1.png';
-
 // --- Configuration: Update your image URLs here ---
-const LOGO_URL = deerLogo; 
-const ABOUT_IMAGE_URL = meImage;
+const LOGO_URL = "/PheenyDeer_1.png"; 
+const ABOUT_IMAGE_URL = "/me.jpg";
 
 // --- Background Decorations ---
 const FourPointStar = ({ size = 16, className = "" }: { size?: number; className?: string }) => (
@@ -175,12 +171,8 @@ export default function App() {
                   alt="Logo" 
                   className="w-full h-full object-cover opacity-90 brightness-110"
                   onError={(e) => {
-                    // If image fails, show a stylized deer icon instead of a broken link
-                    e.currentTarget.style.display = 'none';
-                    const parent = e.currentTarget.parentElement;
-                    if (parent) {
-                      parent.innerHTML = `<div class="text-gold/40 flex items-center justify-center"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path><path d="M12 7l0 10"></path><path d="M9 10l6 0"></path></svg></div>`;
-                    }
+                    // Fallback to placeholder if image fails
+                    e.currentTarget.src = "https://picsum.photos/seed/deer/200/200";
                   }}
                 />
               </div>
