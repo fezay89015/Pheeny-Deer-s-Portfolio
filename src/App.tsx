@@ -17,10 +17,12 @@ import { projects, Project } from './data/projects';
 import { ProjectCard } from './components/ProjectCard';
 import { ProjectModal } from './components/ProjectModal';
 import { cn } from './lib/utils';
+import logoUrl from './assets/PheenyDeer_1.png';
+import aboutImageUrl from './assets/me.jpg';
 
 // --- Configuration: Update your image URLs here ---
-const LOGO_URL = "/PheenyDeer_1.png"; 
-const ABOUT_IMAGE_URL = "/me.jpg";
+const LOGO_URL = logoUrl; 
+const ABOUT_IMAGE_URL = aboutImageUrl;
 
 // --- Background Decorations ---
 const FourPointStar = ({ size = 16, className = "" }: { size?: number; className?: string }) => (
@@ -169,7 +171,8 @@ export default function App() {
                   <img 
                     src={LOGO_URL} 
                     alt="Logo" 
-                    className="w-full h-full object-cover opacity-90 brightness-110"
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
                   />
               </div>
             </div>
@@ -280,7 +283,8 @@ export default function App() {
                   <img 
                     src={ABOUT_IMAGE_URL} 
                     alt="陳宏威" 
-                    className="w-full h-full object-cover object-center contrast-[1.05] saturate-[1.1]"
+                    className="w-full h-full object-cover object-center"
+                    referrerPolicy="no-referrer"
                   />
                 </div>
                 <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-gold rounded-full flex items-center justify-center shadow-xl border-4 border-teal-bg">
