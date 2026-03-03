@@ -166,15 +166,11 @@ export default function App() {
             {/* Logo */}
             <div className="w-32 h-32 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-12 relative">
               <div className="w-24 h-24 rounded-full bg-gold/10 flex items-center justify-center overflow-hidden">
-                <img 
-                  src={LOGO_URL} 
-                  alt="Logo" 
-                  className="w-full h-full object-cover opacity-90 brightness-110"
-                  onError={(e) => {
-                    // Fallback to placeholder if image fails
-                    e.currentTarget.src = "https://picsum.photos/seed/deer/200/200";
-                  }}
-                />
+                  <img 
+                    src={LOGO_URL} 
+                    alt="Logo" 
+                    className="w-full h-full object-cover opacity-90 brightness-110"
+                  />
               </div>
             </div>
 
@@ -285,10 +281,6 @@ export default function App() {
                     src={ABOUT_IMAGE_URL} 
                     alt="陳宏威" 
                     className="w-full h-full object-cover object-center contrast-[1.05] saturate-[1.1]"
-                    onError={(e) => {
-                      // Fallback to a high-quality nature placeholder if the user image is not found
-                      e.currentTarget.src = "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200";
-                    }}
                   />
                 </div>
                 <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-gold rounded-full flex items-center justify-center shadow-xl border-4 border-teal-bg">
