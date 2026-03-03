@@ -28,7 +28,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
-          className="relative w-full max-w-5xl overflow-hidden rounded-3xl bg-teal-dark border border-white/10 shadow-2xl"
+          className="relative w-full max-w-5xl overflow-hidden rounded-3xl bg-teal-modal border border-white/10 shadow-2xl"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close Button */}
@@ -41,7 +41,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
           <div className="flex flex-col md:flex-row h-full max-h-[90vh] overflow-hidden">
             {/* Media Section */}
-            <div className="flex-1 bg-black overflow-y-auto custom-scrollbar">
+            <div className="flex-1 bg-teal-modal overflow-y-auto custom-scrollbar">
               {project.content && project.content.length > 0 ? (
                 <div className="flex flex-col gap-4 p-4">
                   {project.content.map((item, index) => (

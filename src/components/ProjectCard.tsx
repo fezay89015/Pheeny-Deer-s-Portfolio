@@ -12,10 +12,10 @@ interface ProjectCardProps {
 export function ProjectCard({ project, onClick }: ProjectCardProps) {
   const sizeClasses = {
     small: 'col-span-1 row-span-1',
-    medium: 'col-span-2 row-span-1',
-    large: 'col-span-2 row-span-2',
-    wide: 'col-span-2 row-span-1',
-    tall: 'col-span-1 row-span-2',
+    medium: 'md:col-span-2 md:row-span-1',
+    large: 'md:col-span-2 md:row-span-2',
+    wide: 'md:col-span-2 md:row-span-1',
+    tall: 'md:col-span-1 md:row-span-2',
   };
 
   return (

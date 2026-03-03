@@ -112,7 +112,16 @@ export const projects: Project[] = [
     description: '時尚雜誌的內頁排版設計，強調留白與網格系統。',
     type: 'image',
     thumbnail: 'https://picsum.photos/seed/mag1/400/300',
-    category: '平面設計',
+    category: '插畫創作',
     size: 'small',
+  },
+  {
+    id: '11',
+    title: '蠟線編織：森林圖騰',
+    description: '運用天然礦石與巴西蠟線編織而成的飾品，將大自然的靈性轉化為可配戴的藝術。',
+    type: 'image',
+    thumbnail: 'https://picsum.photos/seed/weaving1/800/600',
+    category: '蠟線編織',
+    size: 'medium',
   },
 ];
