@@ -17,12 +17,9 @@ import { projects, Project } from './data/projects';
 import { ProjectCard } from './components/ProjectCard';
 import { ProjectModal } from './components/ProjectModal';
 import { cn } from './lib/utils';
-import logoUrl from './assets/PheenyDeer_1.png';
-import aboutImageUrl from './assets/me.jpg';
-
 // --- Configuration: Update your image URLs here ---
-const LOGO_URL = logoUrl; 
-const ABOUT_IMAGE_URL = aboutImageUrl;
+const LOGO_URL = "/PheenyDeer_1.png"; 
+const ABOUT_IMAGE_URL = "/me.jpg";
 
 // --- Background Decorations ---
 const FourPointStar = ({ size = 16, className = "" }: { size?: number; className?: string }) => (
