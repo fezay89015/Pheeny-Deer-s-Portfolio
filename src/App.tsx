@@ -18,6 +18,14 @@ import { ProjectCard } from './components/ProjectCard';
 import { ProjectModal } from './components/ProjectModal';
 import { cn } from './lib/utils';
 
+// Import local images
+import meImage from './images/me.jpg';
+import deerLogo from './images/PheenyDeer_1.png';
+
+// --- Configuration: Update your image URLs here ---
+const LOGO_URL = deerLogo; 
+const ABOUT_IMAGE_URL = meImage;
+
 // --- Background Decorations ---
 const FourPointStar = ({ size = 16, className = "" }: { size?: number; className?: string }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -163,9 +171,17 @@ export default function App() {
             <div className="w-32 h-32 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-12 relative">
               <div className="w-24 h-24 rounded-full bg-gold/10 flex items-center justify-center overflow-hidden">
                 <img 
-                  src="https://raw.githubusercontent.com/Hare2353363/portfolio-assets/main/logo.png" 
+                  src={LOGO_URL} 
                   alt="Logo" 
                   className="w-full h-full object-cover opacity-90 brightness-110"
+                  onError={(e) => {
+                    // If image fails, show a stylized deer icon instead of a broken link
+                    e.currentTarget.style.display = 'none';
+                    const parent = e.currentTarget.parentElement;
+                    if (parent) {
+                      parent.innerHTML = `<div class="text-gold/40 flex items-center justify-center"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path><path d="M12 7l0 10"></path><path d="M9 10l6 0"></path></svg></div>`;
+                    }
+                  }}
                 />
               </div>
             </div>
@@ -272,11 +288,15 @@ export default function App() {
                 className="relative group"
               >
                 <div className="absolute -inset-4 bg-gold/5 rounded-[40px] blur-2xl group-hover:bg-gold/10 transition-all" />
-                <div className="relative aspect-[4/5] lg:aspect-[3/4] rounded-[32px] overflow-hidden border border-white/10 shadow-2xl">
+                <div className="relative aspect-[4/5] lg:aspect-[3/4] rounded-[32px] overflow-hidden border border-white/10 shadow-2xl bg-teal-dark/50 flex items-center justify-center">
                   <img 
-                    src="https://raw.githubusercontent.com/Hare2353363/portfolio-assets/main/about.jpg" 
+                    src={ABOUT_IMAGE_URL} 
                     alt="陳宏威" 
                     className="w-full h-full object-cover object-center contrast-[1.05] saturate-[1.1]"
+                    onError={(e) => {
+                      // Fallback to a high-quality nature placeholder if the user image is not found
+                      e.currentTarget.src = "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200";
+                    }}
                   />
                 </div>
                 <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-gold rounded-full flex items-center justify-center shadow-xl border-4 border-teal-bg">
