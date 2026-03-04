@@ -18,8 +18,8 @@ import { ProjectCard } from './components/ProjectCard';
 import { ProjectModal } from './components/ProjectModal';
 import { cn } from './lib/utils';
 // --- Configuration: Update your image URLs here ---
-const LOGO_URL = "https://private-user-images.githubusercontent.com/73527734/557584503-e40b1e8e-baaa-4c44-ac1e-19c844574f0d.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzI1OTk1NzEsIm5iZiI6MTc3MjU5OTI3MSwicGF0aCI6Ii83MzUyNzczNC81NTc1ODQ1MDMtZTQwYjFlOGUtYmFhYS00YzQ0LWFjMWUtMTljODQ0NTc0ZjBkLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjAzMDQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwMzA0VDA0NDExMVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTJhNTBkZDE5OWM4YWU1NzI2NmY5NjE1YTQ5OWRjNzZlN2U5MDk2NzhmYWMyNTkwZmE3ZDdjMjI4ODZmZDcwNzImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.T7vtItPOKnVHsnpHIG1BfQWbpjZ44QfJGRerI-vmH3o"; 
-const ABOUT_IMAGE_URL = "https://private-user-images.githubusercontent.com/73527734/557584428-12e3a0e7-13de-497d-964a-3e8838b20acc.jpg?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzI1OTk1NzEsIm5iZiI6MTc3MjU5OTI3MSwicGF0aCI6Ii83MzUyNzczNC81NTc1ODQ0MjgtMTJlM2EwZTctMTNkZS00OTdkLTk2NGEtM2U4ODM4YjIwYWNjLmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjAzMDQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwMzA0VDA0NDExMVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWJjMzA5Y2Q1ZjM0OTUwYmE2YzZkZTZmNjRkNGU0Y2ZhOGI3YWM0OTQ2NzdiYmZmM2Y3NzBhMmFlMDZmYjhhNzImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.UVqMq-LZBm6UahP5h31_op3Gd46u6sd4loNUoje0-9M";
+const LOGO_URL = "https://github.com/user-attachments/assets/e40b1e8e-baaa-4c44-ac1e-19c844574f0d"; 
+const ABOUT_IMAGE_URL = "https://github.com/user-attachments/assets/12e3a0e7-13de-497d-964a-3e8838b20acc";
 
 // --- Background Decorations ---
 const FourPointStar = ({ size = 16, className = "" }: { size?: number; className?: string }) => (
