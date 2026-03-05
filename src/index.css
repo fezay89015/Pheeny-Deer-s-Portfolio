@@ -92,11 +92,13 @@
     position: absolute;
     width: 2px;
     height: 100px;
-    background: linear-gradient(to bottom, rgba(212, 182, 124, 0.8), transparent);
+    /* Head is at the bottom (leading), tail is at the top (trailing) */
+    background: linear-gradient(to top, rgba(212, 182, 124, 0.8), transparent);
     transform: rotate(-45deg);
     pointer-events: none;
     animation: shoot 5s linear infinite;
     opacity: 0;
+    will-change: transform, opacity;
   }
 
   @keyframes shoot {

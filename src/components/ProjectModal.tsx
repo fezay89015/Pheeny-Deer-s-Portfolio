@@ -1,6 +1,7 @@
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import { X, Play, Image as ImageIcon, ExternalLink } from 'lucide-react';
 import { Project } from '../data/projects';
+import { cn } from '../lib/utils';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -8,36 +9,37 @@ interface ProjectModalProps {
 }
 
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
+  // We assume project is not null because of conditional rendering in App.tsx
   if (!project) return null;
 
   return (
-    <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8">
-        {/* Backdrop */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={onClose}
-          className="absolute inset-0 bg-black/90 backdrop-blur-xl"
-        />
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8">
+      {/* Backdrop */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={onClose}
+        className="absolute inset-0 bg-black/90 backdrop-blur-xl"
+      />
 
-        {/* Modal Content */}
-        <motion.div
-          layoutId={`project-${project.id}`}
-          initial={{ opacity: 0, scale: 0.9, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.9, y: 20 }}
-          className="relative w-full max-w-5xl overflow-hidden rounded-3xl bg-teal-modal border border-white/10 shadow-2xl"
-          onClick={(e) => e.stopPropagation()}
+      {/* Modal Content */}
+      <motion.div
+        layoutId={`project-${project.id}`}
+        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.9, y: 20 }}
+        className="relative w-full max-w-5xl overflow-hidden rounded-3xl bg-teal-modal border border-white/10 shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Close Button */}
+        <button
+          onClick={onClose}
+          aria-label="Close modal"
+          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/50 text-white/80 hover:bg-white/20 transition-colors"
         >
-          {/* Close Button */}
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/50 text-white/80 hover:bg-white/20 transition-colors"
-          >
-            <X className="w-6 h-6" />
-          </button>
+          <X className="w-6 h-6" />
+        </button>
 
           <div className="flex flex-col md:flex-row h-full max-h-[90vh] overflow-hidden">
             {/* Media Section */}
@@ -49,7 +51,10 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                       {item.type === 'video' ? (
                         <iframe
                           src={item.value}
-                          className="w-full aspect-video rounded-xl"
+                          className={cn(
+                            "rounded-xl",
+                            project.aspectRatio === '9/16' ? "aspect-[9/16] max-w-[350px] mx-auto w-full" : "aspect-video w-full"
+                          )}
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                           allowFullScreen
                         />
@@ -73,7 +78,10 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                   {project.type === 'video' && project.url ? (
                     <iframe
                       src={project.url}
-                      className="w-full aspect-video"
+                      className={cn(
+                        "rounded-xl",
+                        project.aspectRatio === '9/16' ? "aspect-[9/16] max-w-[350px] h-full" : "aspect-video w-full"
+                      )}
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                     />
@@ -126,6 +134,5 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           </div>
         </motion.div>
       </div>
-    </AnimatePresence>
   );
 }

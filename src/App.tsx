@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, memo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Instagram, 
@@ -22,23 +22,23 @@ const LOGO_URL = "https://github.com/user-attachments/assets/e40b1e8e-baaa-4c44-
 const ABOUT_IMAGE_URL = "https://github.com/user-attachments/assets/12e3a0e7-13de-497d-964a-3e8838b20acc";
 
 // --- Background Decorations ---
-const FourPointStar = ({ size = 16, className = "" }: { size?: number; className?: string }) => (
+const FourPointStar = memo(({ size = 16, className = "" }: { size?: number; className?: string }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
     <path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z" />
   </svg>
-);
+));
 
-const SixPointStar = ({ size = 20, className = "" }: { size?: number; className?: string }) => (
+const SixPointStar = memo(({ size = 20, className = "" }: { size?: number; className?: string }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
     <path d="M12 0 L14.4 8.4 L12 5.5 L9.6 8.4 Z M24 12 L15.6 14.4 L18.5 12 L15.6 9.6 Z M12 24 L9.6 15.6 L12 18.5 L14.4 15.6 Z M0 12 L8.4 9.6 L5.5 12 L8.4 14.4 Z M14.4 8.4 L15.6 9.6 L18.5 12 L15.6 14.4 L14.4 15.6 L12 18.5 L9.6 15.6 L8.4 14.4 L5.5 12 L8.4 9.6 L9.6 8.4 L12 5.5 Z" />
   </svg>
-);
+));
 
-const DiamondDot = ({ size = 6, className = "" }: { size?: number; className?: string }) => (
+const DiamondDot = memo(({ size = 6, className = "" }: { size?: number; className?: string }) => (
   <svg width={size} height={size} viewBox="0 0 8 8" fill="currentColor" className={className}>
     <path d="M4 0 L8 4 L4 8 L0 4 Z" />
   </svg>
-);
+));
 
 interface StarConfig {
   type: "four" | "six" | "diamond";
@@ -50,7 +50,7 @@ interface StarConfig {
   rotate?: number;
 }
 
-const StarDecorations = ({ stars }: { stars: StarConfig[] }) => {
+const StarDecorations = memo(({ stars }: { stars: StarConfig[] }) => {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
       {/* Shooting Stars */}
@@ -66,7 +66,12 @@ const StarDecorations = ({ stars }: { stars: StarConfig[] }) => {
           animate={{ opacity: star.opacity, scale: 1 }}
           transition={{ duration: 1.2, delay: star.delay, ease: "easeOut" }}
           className="absolute text-gold"
-          style={{ left: star.x, top: star.y, rotate: star.rotate ?? 0 }}
+          style={{ 
+            left: star.x, 
+            top: star.y, 
+            rotate: star.rotate ?? 0,
+            willChange: 'opacity, transform'
+          }}
         >
           {star.type === "four" && <FourPointStar size={star.size} />}
           {star.type === "six" && <SixPointStar size={star.size} />}
@@ -75,7 +80,7 @@ const StarDecorations = ({ stars }: { stars: StarConfig[] }) => {
       ))}
     </div>
   );
-};
+});
 
 const heroStars: StarConfig[] = [
   { type: "four", size: 28, x: "8%", y: "15%", opacity: 0.25, delay: 0.5, rotate: 15 },
@@ -233,7 +238,7 @@ export default function App() {
 
         <motion.div 
           layout
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[250px] md:auto-rows-[300px]"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           <AnimatePresence mode="popLayout">
             {displayedProjects.map((project) => (
@@ -484,10 +489,14 @@ export default function App() {
       </footer>
 
       {/* Modal */}
-      <ProjectModal 
-        project={selectedProject} 
-        onClose={() => setSelectedProject(null)} 
-      />
+      <AnimatePresence>
+        {selectedProject && (
+          <ProjectModal 
+            project={selectedProject} 
+            onClose={() => setSelectedProject(null)} 
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }

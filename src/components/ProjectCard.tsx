@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { motion } from 'motion/react';
 import { Play, Image as ImageIcon, ExternalLink } from 'lucide-react';
 import { Project } from '../data/projects';
@@ -9,23 +10,12 @@ interface ProjectCardProps {
   key?: string | number;
 }
 
-export function ProjectCard({ project, onClick }: ProjectCardProps) {
-  const sizeClasses = {
-    small: 'col-span-1 row-span-1',
-    medium: 'md:col-span-2 md:row-span-1',
-    large: 'md:col-span-2 md:row-span-2',
-    wide: 'md:col-span-2 md:row-span-1',
-    tall: 'md:col-span-1 md:row-span-2',
-  };
-
+export const ProjectCard = memo(({ project, onClick }: ProjectCardProps) => {
   return (
     <motion.div
       layoutId={`project-${project.id}`}
       onClick={() => onClick(project)}
-      className={cn(
-        'group relative overflow-hidden rounded-2xl bg-teal-dark/40 cursor-pointer border border-white/10',
-        sizeClasses[project.size]
-      )}
+      className="group relative overflow-hidden rounded-2xl bg-teal-dark/40 cursor-pointer border border-white/10 aspect-video"
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
     >
@@ -63,4 +53,4 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
       </div>
     </motion.div>
   );
-}
+});
