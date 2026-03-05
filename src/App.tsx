@@ -142,7 +142,7 @@ export default function App() {
       {/* Header */}
       <header className={cn(
         "fixed top-0 left-0 right-0 z-40 transition-all duration-500",
-        isScrolled ? "bg-teal-bg/30 backdrop-blur-xl py-4" : "bg-transparent py-8"
+        isScrolled ? "bg-teal-bg/30 backdrop-blur-xl py-4" : "bg-transparent pt-14 pb-8"
       )}>
         <div className="max-w-7xl mx-auto px-12 flex items-center justify-end">
           <nav className="flex items-center gap-12 font-serif">
