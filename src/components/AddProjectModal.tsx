@@ -16,11 +16,9 @@ export function AddProjectModal({ isOpen, onClose, onProjectAdded }: AddProjectM
     title: '',
     description: '',
     category: 'Motion Graphics',
-    type: 'video',
     thumbnail: '',
-    url: '',
     size: 'medium',
-    content: []
+    content: [{ type: 'video', value: '' }] // Default one item
   });
 
   const categories = ['Motion Graphics', '影音特效', '插畫創作', '平面設計', '蠟線編織'];
@@ -43,13 +41,26 @@ export function AddProjectModal({ isOpen, onClose, onProjectAdded }: AddProjectM
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if ((formData.content || []).length === 0) {
+      alert('請至少新增一項內容');
+      return;
+    }
     setLoading(true);
+
+    // Derive top-level type and url from the first content item for compatibility
+    const firstItem = formData.content![0];
+    const finalData = {
+      ...formData,
+      type: firstItem.type === 'text' ? 'link' : firstItem.type,
+      url: firstItem.type !== 'text' ? firstItem.value : '',
+      password
+    };
 
     try {
       const response = await fetch('/api/projects', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, password })
+        body: JSON.stringify(finalData)
       });
 
       if (response.ok) {
@@ -153,28 +164,15 @@ export function AddProjectModal({ isOpen, onClose, onProjectAdded }: AddProjectM
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-xs font-bold text-gold uppercase tracking-widest">主媒體類型 Primary Type</label>
-                    <div className="flex gap-3">
-                      {[
-                        { id: 'video', icon: Video, label: '影片' },
-                        { id: 'image', icon: ImageIcon, label: '圖片' },
-                        { id: 'link', icon: LinkIcon, label: '連結' }
-                      ].map(type => (
-                        <button
-                          key={type.id}
-                          type="button"
-                          onClick={() => setFormData({ ...formData, type: type.id as any })}
-                          className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border transition-all ${
-                            formData.type === type.id 
-                              ? 'bg-gold border-gold text-teal-dark font-bold' 
-                              : 'bg-teal-dark/50 border-white/10 text-off-white/60 hover:border-gold/40'
-                          }`}
-                        >
-                          <type.icon className="w-4 h-4" />
-                          <span className="text-xs">{type.label}</span>
-                        </button>
-                      ))}
-                    </div>
+                    <label className="text-xs font-bold text-gold uppercase tracking-widest">縮圖網址 Thumbnail URL</label>
+                    <input
+                      required
+                      type="url"
+                      value={formData.thumbnail}
+                      onChange={(e) => setFormData({ ...formData, thumbnail: e.target.value })}
+                      className="w-full bg-teal-dark/50 border border-white/10 rounded-xl px-4 py-3 text-off-white focus:border-gold outline-none transition-colors"
+                      placeholder="https://example.com/image.jpg"
+                    />
                   </div>
 
                   <div className="space-y-2">
@@ -190,31 +188,6 @@ export function AddProjectModal({ isOpen, onClose, onProjectAdded }: AddProjectM
                       <option value="wide">Wide (橫向加長)</option>
                       <option value="tall">Tall (直向加長)</option>
                     </select>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold text-gold uppercase tracking-widest">縮圖網址 Thumbnail URL</label>
-                    <input
-                      required
-                      type="url"
-                      value={formData.thumbnail}
-                      onChange={(e) => setFormData({ ...formData, thumbnail: e.target.value })}
-                      className="w-full bg-teal-dark/50 border border-white/10 rounded-xl px-4 py-3 text-off-white focus:border-gold outline-none transition-colors"
-                      placeholder="https://example.com/image.jpg"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold text-gold uppercase tracking-widest">主內容網址 Main URL</label>
-                    <input
-                      type="url"
-                      value={formData.url}
-                      onChange={(e) => setFormData({ ...formData, url: e.target.value })}
-                      className="w-full bg-teal-dark/50 border border-white/10 rounded-xl px-4 py-3 text-off-white focus:border-gold outline-none transition-colors"
-                      placeholder="https://www.youtube.com/embed/..."
-                    />
                   </div>
                 </div>
               </div>
