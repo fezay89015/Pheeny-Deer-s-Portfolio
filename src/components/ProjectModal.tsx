@@ -104,7 +104,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                         project.aspectRatio === '9/16' ? "aspect-[9/16]" : "aspect-video"
                       )}>
                         <iframe
-                          src={item.value}
+                          src={item.value as string}
                           className="absolute inset-0 w-full h-full"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                           allowFullScreen
@@ -112,11 +112,40 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                       </div>
                     ) : item.type === 'image' ? (
                       <img
-                        src={item.value}
+                        src={item.value as string}
                         alt={`${project.title} detail ${index}`}
                         className="w-full h-auto rounded-xl object-contain"
                         referrerPolicy="no-referrer"
                       />
+                    ) : item.type === 'grid' ? (
+                      <div className="grid grid-cols-2 gap-3 md:gap-4">
+                        {(item.value as string[]).map((img, i) => (
+                          <div key={i} className="bg-black/10 rounded-xl overflow-hidden flex items-center justify-center aspect-square">
+                            <img
+                              src={img}
+                              alt={`${project.title} grid ${i}`}
+                              className="max-w-full max-h-full object-contain"
+                              referrerPolicy="no-referrer"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    ) : item.type === 'row' ? (
+                      <div className={cn(
+                        "grid gap-3 md:gap-4",
+                        (item.value as string[]).length === 2 ? "grid-cols-2" : "grid-cols-2 sm:grid-cols-3"
+                      )}>
+                        {(item.value as string[]).map((img, i) => (
+                          <div key={i} className="bg-black/10 rounded-xl overflow-hidden flex items-center justify-center">
+                            <img
+                              src={img}
+                              alt={`${project.title} row ${i}`}
+                              className="w-full h-auto object-contain"
+                              referrerPolicy="no-referrer"
+                            />
+                          </div>
+                        ))}
+                      </div>
                     ) : (
                       <div className="p-6 text-off-white/80 leading-relaxed text-base bg-white/5 rounded-xl border border-white/5">
                         {item.value}

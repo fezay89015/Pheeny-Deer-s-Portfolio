@@ -346,7 +346,15 @@ export default function App() {
                   <h3 className="text-xl font-bold uppercase tracking-widest">經歷 Experience</h3>
                 </div>
                 
-                <div className="space-y-8 border-l-2 border-gold/20 ml-4">
+                <div className="space-y-8 relative ml-4 pb-32">
+                  {/* Timeline Line */}
+                  <div 
+                    className="absolute left-[-1px] top-2 bottom-0 w-[2px]" 
+                    style={{
+                      background: 'linear-gradient(to bottom, rgba(212, 182, 124, 0.2) 0%, rgba(212, 182, 124, 0.2) 46%, rgba(212, 182, 124, 1) 46%, rgba(212, 182, 124, 1) 69%, transparent 100%)'
+                    }}
+                  />
+                  
                   {/* Past: 北科塔羅 */}
                   <div className="relative pl-12">
                     <div className="absolute left-[-17px] top-2 w-8 h-8 rounded-full bg-teal-bg border border-gold/30 flex items-center justify-center z-10">
