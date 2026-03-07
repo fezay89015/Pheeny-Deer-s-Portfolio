@@ -1,0 +1,192 @@
+[
+  {
+    "id": "100-design",
+    "title": "100 設計：居家生活的解決方案",
+    "description": "這系列作品與「100 室內設計」合作，將複雜的居家規劃轉化為直覺的影像資訊。我們深入探討小宅空間的極致運用、歐洲頂級板材的工藝細節，以及提升睡眠品質的關鍵要素。製作重點在於精準傳達品牌的專業深度，同時保有生活感的視覺溫度。",
+    "type": "video",
+    "thumbnail": "https://img.youtube.com/vi/33LLZoGx-cc/maxresdefault.jpg",
+    "url": "https://www.youtube.com/embed/33LLZoGx-cc",
+    "category": "影音特效",
+    "size": "large",
+    "content": [
+      { "type": "video", "value": "https://www.youtube.com/embed/33LLZoGx-cc" },
+      { "type": "video", "value": "https://www.youtube.com/embed/FxHzyJHsS04" },
+      { "type": "video", "value": "https://www.youtube.com/embed/RIuZgT3nx0k" },
+      { "type": "text", "value": "製作重點在於精準傳達品牌的專業深度，同時保有生活感的視覺溫度，讓觀看者在獲取知識的過程中，也能感受到理想生活的可能性。" }
+    ]
+  },
+  {
+    "id": "fibbo-hatchy",
+    "title": "斐寶樂學 x 哈奇派趣：兒歌律動與互動行銷",
+    "description": "針對幼兒教育市場設計的動態內容。我們結合了節奏感強烈的原創兒歌與充滿活力的角色律動，包含為巴黎奧運金牌致敬的專題歌曲，以及提升孩子肢體協調的冒險主題。這類作品強調色彩的飽和度與節奏的精準對點。",
+    "type": "video",
+    "thumbnail": "https://img.youtube.com/vi/xYeEFGoWFgw/maxresdefault.jpg",
+    "url": "https://www.youtube.com/embed/xYeEFGoWFgw",
+    "category": "Motion Graphics",
+    "size": "wide",
+    "content": [
+      { "type": "video", "value": "https://www.youtube.com/embed/xYeEFGoWFgw" },
+      { "type": "video", "value": "https://www.youtube.com/embed/K3zpqfTQ2HQ" },
+      { "type": "video", "value": "https://www.youtube.com/embed/CO4TZAg3mog" },
+      { "type": "text", "value": "透過高互動性的影像，建立 brand 與家庭間的情感連結。" }
+    ]
+  },
+  {
+    "id": "tianyue-group",
+    "title": "天玉集團：品牌形象與生活圈經營",
+    "description": "這一系列 Reels 與短影音是為天玉集團量身打造的社群內容。我們從美食特約商店的開箱、執行長的日常視角，到賞屋贈禮的推廣，嘗試用更接地氣的方式展現建設品牌的多元面向。透過快速節奏與輕快的視覺語言，將生硬的房地產資訊轉化為有趣、好吸收的社群亮點。",
+    "type": "video",
+    "thumbnail": "https://img.youtube.com/vi/-ZGARA8iBmU/maxresdefault.jpg",
+    "url": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1184889172758153%2F&show_text=0",
+    "aspectRatio": "9/16",
+    "category": "影音特效",
+    "size": "tall",
+    "content": [
+      { "type": "video", "value": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1184889172758153%2F&show_text=0" },
+      { "type": "video", "value": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1225176865752750%2F&show_text=0" },
+      { "type": "video", "value": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1212834423893805%2F&show_text=0" },
+      { "type": "video", "value": "https://www.youtube.com/embed/-ZGARA8iBmU" }
+    ]
+  },
+  {
+    "id": "yummy-newyear",
+    "title": "雅米創意：節慶動態視覺設計",
+    "description": "這是為雅米創意製作的農曆新年賀卡動畫。在極短的時間內，透過流暢的圖形變換與應景的視覺元素，傳遞品牌在傳統節慶中的創新生命力。這類作品考驗的是在幾秒鐘內抓住視線的「動態感」與色彩配置的質感。",
+    "type": "video",
+    "thumbnail": "https://img.youtube.com/vi/rfTWVb7TBdw/maxresdefault.jpg",
+    "url": "https://www.youtube.com/embed/rfTWVb7TBdw",
+    "category": "Motion Graphics",
+    "size": "medium"
+  },
+  {
+    "id": "tigerair-greeting",
+    "title": "台灣虎航：品牌節慶問候動畫",
+    "description": "專為航空品牌打造的社群節慶動畫。我們延續虎航活潑、充滿冒險精神的品牌個性，製作了一系列節慶問候影像。設計上注重品牌識別色的應用與氛圍的營造，確保在資訊爆炸的社群平台上，能第一時間傳達品牌的熱情與誠摯祝福。",
+    "type": "video",
+    "thumbnail": "https://img.youtube.com/vi/wRPQynZzROc/maxresdefault.jpg",
+    "url": "https://www.youtube.com/embed/wRPQynZzROc",
+    "aspectRatio": "9/16",
+    "category": "Motion Graphics",
+    "size": "tall",
+    "content": [
+      { "type": "video", "value": "https://www.youtube.com/embed/wRPQynZzROc" },
+      { "type": "video", "value": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D1685650812349570&show_text=0" }
+    ]
+  },
+  {
+    "id": "ntpc-rental-safety",
+    "title": "公部門宣導：新北學生租賃安全動畫",
+    "description": "這是一部與新北市教育局合作的知識性宣導動畫。我們將法律條文、消防檢查與租屋安全 checklist 等生硬資訊，拆解成易於理解的故故事節。透過清新且易讀的插畫風格，協助學生族群快速掌握校外租屋的權益與安全要點。",
+    "type": "video",
+    "thumbnail": "https://img.youtube.com/vi/kqKNqXUMYwk/maxresdefault.jpg",
+    "url": "https://www.youtube.com/embed/kqKNqXUMYwk",
+    "category": "Motion Graphics",
+    "size": "wide"
+  },
+  {
+    "id": "ntuh-ai-medical",
+    "title": "專業系統展示：台大醫院 AI 遠距醫療系統",
+    "description": "這部作品旨在介紹高度專業的醫療科技。我們透過清晰的視覺流程圖與動態展示，詮釋台大醫院如何結合 AI 語音辨識與大數據分析，達成精準的急診風險預測。製作重點在於維持醫療專業的嚴謹感，同時確保科技運作邏輯能被大眾一眼看懂。",
+    "type": "video",
+    "thumbnail": "https://img.youtube.com/vi/IyeLS68CVLk/maxresdefault.jpg",
+    "url": "https://www.youtube.com/embed/IyeLS68CVLk",
+    "category": "Motion Graphics",
+    "size": "medium"
+  },
+  {
+    "id": "taichung-smart-manager",
+    "title": "台中樂居管家：社區智慧管理導覽",
+    "description": "針對台中市政府推出的智慧管理平台，我們製作了這部操作引導動畫。以智能客服「小橘」作為視覺核心，引領使用者了解業務申請、法規查詢與社區互動等六大功能。動畫設計強調易用性與親切感。",
+    "type": "video",
+    "thumbnail": "https://img.youtube.com/vi/llj4ZFVdAVY/maxresdefault.jpg",
+    "url": "https://www.youtube.com/embed/llj4ZFVdAVY",
+    "category": "Motion Graphics",
+    "size": "medium"
+  },
+  {
+    "id": "university-works",
+    "title": "創作初衷：大學時期動畫實驗",
+    "description": "這是記錄我動畫之路起點的選輯。包含了早期對角色敘事、動態節奏的各種嘗試。雖然技術不若現今成熟，但這些作品保留了最純粹的創意與對影像說故事的熱情，是我在視覺創作領域不斷探索與進步的基石。",
+    "type": "video",
+    "thumbnail": "https://img.youtube.com/vi/nrFRVnPtBo0/maxresdefault.jpg",
+    "url": "https://www.youtube.com/embed/nrFRVnPtBo0",
+    "category": "Motion Graphics",
+    "size": "large",
+    "content": [
+      { "type": "video", "value": "https://www.youtube.com/embed/nrFRVnPtBo0" },
+      { "type": "text", "value": "更多大學時期的實驗作品可以參考我的 YouTube 頻道。" }
+    ]
+  },
+  {
+    "id": "weaving-1",
+    "title": "蠟線編織：森林圖騰",
+    "description": "運用天然礦石與巴西蠟線編織而成的飾品，將大自然的靈性轉化為可配戴的藝術。",
+    "type": "image",
+    "thumbnail": "https://picsum.photos/seed/weaving1/800/600",
+    "category": "蠟線編織",
+    "size": "medium"
+  },
+  {
+    "id": "illustration-divine-light",
+    "title": "祈光一刻：駐點占卜視覺設計",
+    "description": "為「祈光一刻」駐點占卜活動設計的視覺元素，結合神祕學符號與溫暖的色彩調性。",
+    "type": "image",
+    "thumbnail": "https://picsum.photos/seed/divine/800/600",
+    "category": "插畫創作",
+    "size": "medium"
+  },
+  {
+    "id": "illustration-tarot-club",
+    "title": "霓享塔羅社：社團視覺識別",
+    "description": "為北科霓享塔羅社打造的品牌視覺，包含 Logo、社徽與相關宣傳插畫。",
+    "type": "image",
+    "thumbnail": "https://picsum.photos/seed/tarotclub/800/600",
+    "category": "插畫創作",
+    "size": "medium"
+  },
+  {
+    "id": "illustration-tarot-cards",
+    "title": "靈感牌卡：塔羅視覺創作",
+    "description": "個人對塔羅牌義的視覺詮釋實驗，透過插畫探索大阿爾克那的象徵意義。",
+    "type": "image",
+    "thumbnail": "https://picsum.photos/seed/tarotcards/800/600",
+    "category": "插畫創作",
+    "size": "medium"
+  },
+  {
+    "id": "illustration-reef-castle",
+    "title": "繪本製作：藻礁城堡",
+    "description": "以海洋生態保護為主題的繪本創作，透過溫潤的筆觸講述藻礁生態系的故事。",
+    "type": "image",
+    "thumbnail": "https://picsum.photos/seed/reef/800/600",
+    "category": "插畫創作",
+    "size": "medium"
+  },
+  {
+    "id": "illustration-mornin",
+    "title": "mornin：日常插畫系列",
+    "description": "以早晨與日常生活為靈感的插畫創作，捕捉平凡日子裡的微光時刻。",
+    "type": "image",
+    "thumbnail": "https://picsum.photos/seed/mornin/800/600",
+    "category": "插畫創作",
+    "size": "medium"
+  },
+  {
+    "id": "illustration-totem",
+    "title": "圖騰設計：幾何與自然",
+    "description": "結合幾何圖形與自然元素的圖騰創作，探索對稱與律動的美感。",
+    "type": "image",
+    "thumbnail": "https://picsum.photos/seed/totem/800/600",
+    "category": "插畫創作",
+    "size": "medium"
+  },
+  {
+    "id": "illustration-sketches",
+    "title": "視覺實驗：隨筆創作輯",
+    "description": "日常靈感的快速記錄與風格實驗，收錄多樣化的隨筆與塗鴉創作。",
+    "type": "image",
+    "thumbnail": "https://picsum.photos/seed/sketches/800/600",
+    "category": "插畫創作",
+    "size": "medium"
+  }
+]

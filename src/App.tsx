@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, memo } from 'react';
+import { useState, useMemo, useEffect, memo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Instagram, 
@@ -11,11 +11,13 @@ import {
   Star,
   ChevronDown,
   ArrowDown,
-  Plus
+  Plus,
+  Settings
 } from 'lucide-react';
-import { projects, Project } from './data/projects';
+import { Project } from './data/projects';
 import { ProjectCard } from './components/ProjectCard';
 import { ProjectModal } from './components/ProjectModal';
+import { AddProjectModal } from './components/AddProjectModal';
 import { cn } from './lib/utils';
 // --- Configuration: Update your image URLs here ---
 const LOGO_URL = "https://github.com/user-attachments/assets/e40b1e8e-baaa-4c44-ac1e-19c844574f0d"; 
@@ -114,10 +116,39 @@ const aboutStars: StarConfig[] = [
 ];
 
 export default function App() {
+  const [projects, setProjects] = useState<Project[]>([]);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeCategory, setActiveCategory] = useState<string>('ALL');
   const [isScrolled, setIsScrolled] = useState(false);
   const [visibleCount, setVisibleCount] = useState(6);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('admin') === 'true') {
+      setIsAdmin(true);
+    }
+  }, []);
+
+  const fetchProjects = useCallback(async () => {
+    try {
+      const response = await fetch('/api/projects');
+      if (response.ok) {
+        const data = await response.json();
+        setProjects(data);
+      }
+    } catch (error) {
+      console.error('Error fetching projects:', error);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchProjects();
+  }, [fetchProjects]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -149,7 +180,18 @@ export default function App() {
         "fixed top-0 left-0 right-0 z-40 transition-all duration-500",
         isScrolled ? "bg-teal-bg/30 backdrop-blur-xl py-4" : "bg-transparent pt-14 pb-8"
       )}>
-        <div className="max-w-7xl mx-auto px-12 flex items-center justify-end">
+        <div className="max-w-7xl mx-auto px-12 flex items-center justify-between">
+          {isAdmin ? (
+            <button 
+              onClick={() => setIsAddModalOpen(true)}
+              className="p-2 rounded-full bg-white/5 border border-white/10 text-off-white/40 hover:text-gold hover:border-gold transition-all"
+              title="管理作品"
+            >
+              <Settings className="w-5 h-5" />
+            </button>
+          ) : (
+            <div />
+          )}
           <nav className="flex items-center gap-12 font-serif">
             <a href="#home" className="text-sm font-medium tracking-widest text-off-white/60 hover:text-gold transition-colors uppercase">Home</a>
             <a href="#works" className="text-sm font-medium tracking-widest text-off-white/60 hover:text-gold transition-colors uppercase">Works</a>
@@ -497,6 +539,15 @@ export default function App() {
           />
         )}
       </AnimatePresence>
+
+      {/* Add Project Modal */}
+      <AddProjectModal 
+        isOpen={isAddModalOpen}
+        onClose={() => setIsAddModalOpen(false)}
+        onProjectAdded={(newProject) => {
+          setProjects(prev => [newProject, ...prev]);
+        }}
+      />
     </div>
   );
 }
