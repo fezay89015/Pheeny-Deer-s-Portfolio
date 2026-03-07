@@ -25,6 +25,7 @@ export const ProjectCard = memo(({ project, onClick }: ProjectCardProps) => {
         alt={project.title}
         className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-85 group-hover:opacity-100"
         referrerPolicy="no-referrer"
+        loading="lazy"
       />
 
       {/* Overlay - Lighter and focused at bottom */}
