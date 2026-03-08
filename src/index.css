@@ -71,6 +71,15 @@
     @apply bg-teal-dark/20 animate-pulse;
   }
 
+  .image-fade-in {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .image-loaded {
+    opacity: 1;
+  }
+
   .timeline-line-solid {
     background: var(--color-gold);
     opacity: 0.3;

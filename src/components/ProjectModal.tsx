@@ -1,8 +1,44 @@
-import { useEffect } from 'react';
+import { useEffect, useState, memo } from 'react';
 import { motion } from 'motion/react';
 import { X, Play, Image as ImageIcon, ExternalLink } from 'lucide-react';
 import { Project } from '../data/projects';
 import { cn } from '../lib/utils';
+
+const LoadedImage = memo(({ src, alt, className, priority = false }: { src: string; alt: string; className?: string; priority?: boolean }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  return (
+    <div className={cn(
+      "relative overflow-hidden transition-all duration-500", 
+      className, 
+      !isLoaded && "animate-pulse bg-white/5 rounded-xl"
+    )}>
+      {/* Loading Placeholder with Thematic Gradient */}
+      {!isLoaded && (
+        <div className="absolute inset-0 bg-gradient-to-br from-teal-dark/60 via-teal-bg/40 to-gold/5 flex items-center justify-center z-10">
+          <div className="flex flex-col items-center gap-3">
+            <div className="w-8 h-8 border-2 border-gold/20 border-t-gold rounded-full animate-spin" />
+            <span className="text-[8px] uppercase tracking-[0.2em] text-gold/40 font-bold">Loading</span>
+          </div>
+        </div>
+      )}
+      
+      <img
+        src={src}
+        alt={alt}
+        fetchPriority={priority ? "high" : "auto"}
+        className={cn(
+          "transition-all duration-1000 ease-out",
+          className?.includes('object-contain') ? "" : "w-full h-auto",
+          isLoaded ? "opacity-100 scale-100 blur-0" : "opacity-0 scale-105 blur-2xl"
+        )}
+        onLoad={() => setIsLoaded(true)}
+        referrerPolicy="no-referrer"
+        decoding="async"
+      />
+    </div>
+  );
+});
 
 interface ProjectModalProps {
   project: Project | null;
@@ -39,7 +75,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         initial={{ opacity: 0, scale: 0.9, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.9, y: 20 }}
-        className="relative w-full max-w-6xl overflow-hidden rounded-2xl md:rounded-3xl bg-teal-modal border border-white/10 shadow-2xl flex flex-col md:flex-row h-full max-h-[95vh] md:max-h-[90vh]"
+        className="relative w-full max-w-7xl overflow-hidden rounded-2xl md:rounded-3xl bg-teal-modal border border-white/10 shadow-2xl flex flex-col md:flex-row h-full max-h-[95vh] md:max-h-[90vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
@@ -111,26 +147,37 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                         />
                       </div>
                     ) : item.type === 'image' ? (
-                      <img
+                      <LoadedImage
                         src={item.value as string}
                         alt={`${project.title} detail ${index}`}
-                        className="w-full h-auto rounded-xl object-contain"
-                        referrerPolicy="no-referrer"
-                        decoding="async"
+                        priority={index === 0}
                       />
                     ) : item.type === 'grid' ? (
-                      <div className="grid grid-cols-2 gap-3 md:gap-4">
-                        {(item.value as string[]).map((img, i) => (
-                          <div key={i} className="bg-black/10 rounded-xl overflow-hidden flex items-center justify-center aspect-square">
-                            <img
-                              src={img}
-                              alt={`${project.title} grid ${i}`}
-                              className="max-w-full max-h-full object-contain"
-                              referrerPolicy="no-referrer"
-                              decoding="async"
-                            />
-                          </div>
-                        ))}
+                      <div className="grid grid-cols-2 gap-3 md:gap-4 items-start">
+                        {(item.value as string[]).map((url, i) => {
+                          const isVideo = url.includes('youtube.com') || url.includes('facebook.com') || url.includes('vimeo.com');
+                          return isVideo ? (
+                            <div key={i} className={cn(
+                              "relative rounded-xl overflow-hidden bg-black/20 w-full shadow-lg",
+                              project.aspectRatio === '9/16' ? "aspect-[9/16]" : "aspect-video"
+                            )}>
+                              <iframe
+                                src={url}
+                                className="absolute inset-0 w-full h-full"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                              />
+                            </div>
+                          ) : (
+                            <div key={i} className="w-full">
+                              <LoadedImage
+                                src={url}
+                                alt={`${project.title} grid ${i}`}
+                                className="w-full h-auto rounded-xl"
+                              />
+                            </div>
+                          );
+                        })}
                       </div>
                     ) : item.type === 'row' ? (
                       <div className={cn(
@@ -138,15 +185,11 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                         (item.value as string[]).length === 2 ? "grid-cols-2" : "grid-cols-2 sm:grid-cols-3"
                       )}>
                         {(item.value as string[]).map((img, i) => (
-                          <div key={i} className="bg-black/10 rounded-xl overflow-hidden flex items-center justify-center">
-                            <img
-                              src={img}
-                              alt={`${project.title} row ${i}`}
-                              className="w-full h-auto object-contain"
-                              referrerPolicy="no-referrer"
-                              decoding="async"
-                            />
-                          </div>
+                          <LoadedImage
+                            key={i}
+                            src={img}
+                            alt={`${project.title} row ${i}`}
+                          />
                         ))}
                       </div>
                     ) : (
@@ -172,12 +215,11 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                     />
                   </div>
                 ) : (
-                  <img
+                  <LoadedImage
                     src={project.thumbnail}
                     alt={project.title}
-                    className="w-full h-full object-contain rounded-xl"
-                    referrerPolicy="no-referrer"
-                    decoding="async"
+                    className="w-full h-full"
+                    priority={true}
                   />
                 )}
               </div>

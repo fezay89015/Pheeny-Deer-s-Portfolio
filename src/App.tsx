@@ -126,15 +126,15 @@ export default function App() {
       const aboutImg = new Image();
       aboutImg.src = ABOUT_IMAGE_URL;
       
-      // 2. Preload Project Thumbnails with a slight delay to prioritize main content
+      // 2. Preload only the first 8 Project Thumbnails to save bandwidth for active interactions
       const timer = setTimeout(() => {
-        projects.forEach(project => {
+        projects.slice(0, 8).forEach(project => {
           if (project.thumbnail) {
             const img = new Image();
             img.src = project.thumbnail;
           }
         });
-      }, 1500);
+      }, 2000);
 
       return () => clearTimeout(timer);
     };
@@ -169,6 +169,21 @@ export default function App() {
   const displayedProjects = useMemo(() => {
     return filteredProjects.slice(0, visibleCount);
   }, [filteredProjects, visibleCount]);
+
+  const preloadProjectContent = (project: Project) => {
+    if (!project.content) return;
+    project.content.forEach(item => {
+      if (item.type === 'image') {
+        const img = new Image();
+        img.src = item.value as string;
+      } else if (item.type === 'grid' || item.type === 'row') {
+        (item.value as string[]).forEach(src => {
+          const img = new Image();
+          img.src = src;
+        });
+      }
+    });
+  };
 
   const handleLoadMore = () => {
     setVisibleCount(prev => prev + 8);
@@ -280,6 +295,7 @@ export default function App() {
                 key={project.id} 
                 project={project} 
                 onClick={setSelectedProject}
+                onMouseEnter={() => preloadProjectContent(project)}
               />
             ))}
           </AnimatePresence>
