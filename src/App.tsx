@@ -119,6 +119,34 @@ export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [visibleCount, setVisibleCount] = useState(6);
 
+  // Sequential Image Preloading
+  useEffect(() => {
+    const preloadImages = () => {
+      // 1. Preload About Photo immediately after initial load
+      const aboutImg = new Image();
+      aboutImg.src = ABOUT_IMAGE_URL;
+      
+      // 2. Preload Project Thumbnails with a slight delay to prioritize main content
+      const timer = setTimeout(() => {
+        projects.forEach(project => {
+          if (project.thumbnail) {
+            const img = new Image();
+            img.src = project.thumbnail;
+          }
+        });
+      }, 1500);
+
+      return () => clearTimeout(timer);
+    };
+
+    if (document.readyState === 'complete') {
+      preloadImages();
+    } else {
+      window.addEventListener('load', preloadImages);
+      return () => window.removeEventListener('load', preloadImages);
+    }
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > window.innerHeight * 0.8);
@@ -179,6 +207,8 @@ export default function App() {
                     alt="Logo" 
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
+                    decoding="async"
+                    fetchPriority="high"
                   />
               </div>
             </div>
@@ -291,6 +321,7 @@ export default function App() {
                     alt="陳宏威" 
                     className="w-full h-full object-cover object-center"
                     referrerPolicy="no-referrer"
+                    decoding="async"
                   />
                 </div>
                 <div className="absolute -bottom-4 -right-4 w-16 h-16 md:w-20 md:h-20 bg-gold rounded-full flex items-center justify-center shadow-xl border-4 border-teal-bg">

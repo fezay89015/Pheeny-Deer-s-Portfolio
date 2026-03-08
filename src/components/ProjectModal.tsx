@@ -116,6 +116,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                         alt={`${project.title} detail ${index}`}
                         className="w-full h-auto rounded-xl object-contain"
                         referrerPolicy="no-referrer"
+                        decoding="async"
                       />
                     ) : item.type === 'grid' ? (
                       <div className="grid grid-cols-2 gap-3 md:gap-4">
@@ -126,6 +127,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                               alt={`${project.title} grid ${i}`}
                               className="max-w-full max-h-full object-contain"
                               referrerPolicy="no-referrer"
+                              decoding="async"
                             />
                           </div>
                         ))}
@@ -142,6 +144,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                               alt={`${project.title} row ${i}`}
                               className="w-full h-auto object-contain"
                               referrerPolicy="no-referrer"
+                              decoding="async"
                             />
                           </div>
                         ))}
@@ -174,6 +177,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                     alt={project.title}
                     className="w-full h-full object-contain rounded-xl"
                     referrerPolicy="no-referrer"
+                    decoding="async"
                   />
                 )}
               </div>

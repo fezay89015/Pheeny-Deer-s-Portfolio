@@ -67,6 +67,10 @@
     }
   }
 
+  .image-loading {
+    @apply bg-teal-dark/20 animate-pulse;
+  }
+
   .timeline-line-solid {
     background: var(--color-gold);
     opacity: 0.3;
