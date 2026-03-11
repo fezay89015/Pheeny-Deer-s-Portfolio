@@ -378,10 +378,13 @@ export default function App() {
                 <h2 className="text-4xl md:text-5xl font-bold mb-6">關於我 <span className="text-gold italic">About Me</span></h2>
                 <div className="space-y-6 text-lg text-off-white/70 leading-relaxed">
                   <p>
-                    我是<span className="text-off-white font-bold">陳宏威 (Chen HongWei)</span>，曾任職動態影像設計師並有動畫接案經驗，熟悉電腦操作與軟體學習能力快。
+                    我是陳宏威。高中開始對動畫產生興趣，大學進入北科大互動系後正式學習 After Effects。曾於台北擔任一年動態影像設計師，負責 2D Motion Graphics 與影音特效後製，這段經歷讓我熟悉了從腳本到製作實務上的專案節奏，也更清楚如何處理畫面中的細節。
                   </p>
                   <p>
-                    在北科大互動設計系就讀時，參與多次跨領域專案，培養了協作與獨立解決問題的能力。曾擔任熱舞社教學長與舞蹈大賽總召，能規劃活動並應對現場突發狀況。
+                    動態設計、插畫是我最習慣的表達形式。設計專業外，熱舞社對律動和音樂拆解的理解、塔羅神祕學對人事物的觀察力、手作編織對細膩手工的堅持，這些元素都是我創作的一部分，讓我能從不同維度切入創作的可能性。
+                  </p>
+                  <p>
+                    目前我在一間藝術餐廳任職行銷設計，工作之餘正著手規劃原創角色「斐尼鹿」的系列插畫，並嘗試與編織等手作形式結合。未來我會繼續在動態影像領域深耕，透過各種形式的美，創造能讓人感受到療癒的作品。
                   </p>
                 </div>
               </div>
