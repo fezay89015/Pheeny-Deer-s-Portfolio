@@ -402,24 +402,44 @@ export default function App() {
                     }}
                   />
                   
-                  {/* Past: 北科塔羅 */}
-                  <div className="relative pl-12">
-                    <div className="absolute left-[-17px] top-2 w-8 h-8 rounded-full bg-teal-bg border border-gold/30 flex items-center justify-center z-10">
-                      <div className="w-2 h-2 rounded-full bg-gold/30" />
+                  {/* Past: 北科熱舞 */}
+                  <div className="relative pl-12 group">
+                    <div className="absolute left-[-17px] top-2 w-8 h-8 rounded-full bg-teal-bg border border-gold/30 group-hover:border-gold flex items-center justify-center z-10 transition-colors">
+                      <div className="w-2 h-2 rounded-full bg-gold/30 group-hover:bg-gold transition-colors" />
                     </div>
-                    <span className="text-gold/40 font-mono text-xs tracking-widest">2025</span>
-                    <h4 className="text-lg font-bold mt-2 text-off-white/60">北科霓享塔羅社</h4>
-                    <p className="text-gold/40 text-sm font-medium">蠟線礦石手鍊 編織體驗課 課堂講師</p>
+                    <span className="text-gold/40 group-hover:text-gold font-mono text-xs tracking-widest transition-colors">2020</span>
+                    <h4 className="text-gold/40 group-hover:text-gold/80 text-sm font-medium mt-2 transition-colors">北科熱舞社</h4>
+                    <p className="text-lg font-bold text-off-white/40 group-hover:text-off-white transition-colors">Jazz組教學長 / Hug全國舞蹈大賽 總召</p>
+                  </div>
+
+                  {/* Past: 霓享塔羅 */}
+                  <div className="relative pl-12 group">
+                    <div className="absolute left-[-17px] top-2 w-8 h-8 rounded-full bg-teal-bg border border-gold/30 group-hover:border-gold flex items-center justify-center z-10 transition-colors">
+                      <div className="w-2 h-2 rounded-full bg-gold/30 group-hover:bg-gold transition-colors" />
+                    </div>
+                    <span className="text-gold/40 group-hover:text-gold font-mono text-xs tracking-widest transition-colors">2022</span>
+                    <h4 className="text-gold/40 group-hover:text-gold/80 text-sm font-medium mt-2 transition-colors">北科霓享塔羅社</h4>
+                    <p className="text-lg font-bold text-off-white/40 group-hover:text-off-white transition-colors">美宣長 / 攝影長</p>
                   </div>
 
                   {/* Past: 雅米 */}
-                  <div className="relative pl-12">
-                    <div className="absolute left-[-17px] top-2 w-8 h-8 rounded-full bg-teal-bg border border-gold/30 flex items-center justify-center z-10">
-                      <div className="w-2 h-2 rounded-full bg-gold/30" />
+                  <div className="relative pl-12 group">
+                    <div className="absolute left-[-17px] top-2 w-8 h-8 rounded-full bg-teal-bg border border-gold/30 group-hover:border-gold flex items-center justify-center z-10 transition-colors">
+                      <div className="w-2 h-2 rounded-full bg-gold/30 group-hover:bg-gold transition-colors" />
                     </div>
-                    <span className="text-gold/40 font-mono text-xs tracking-widest">2024 - 2025</span>
-                    <h4 className="text-lg font-bold mt-2 text-off-white/60">雅米創意有限公司</h4>
-                    <p className="text-gold/40 text-sm font-medium">動畫影像設計師</p>
+                    <span className="text-gold/40 group-hover:text-gold font-mono text-xs tracking-widest transition-colors">2024 - 2025</span>
+                    <h4 className="text-gold/40 group-hover:text-gold/80 text-sm font-medium mt-2 transition-colors">雅米創意有限公司</h4>
+                    <p className="text-lg font-bold text-off-white/40 group-hover:text-off-white transition-colors">動畫影像設計師</p>
+                  </div>
+
+                  {/* Past: 北科塔羅講師 */}
+                  <div className="relative pl-12 group">
+                    <div className="absolute left-[-17px] top-2 w-8 h-8 rounded-full bg-teal-bg border border-gold/30 group-hover:border-gold flex items-center justify-center z-10 transition-colors">
+                      <div className="w-2 h-2 rounded-full bg-gold/30 group-hover:bg-gold transition-colors" />
+                    </div>
+                    <span className="text-gold/40 group-hover:text-gold font-mono text-xs tracking-widest transition-colors">2025</span>
+                    <h4 className="text-gold/40 group-hover:text-gold/80 text-sm font-medium mt-2 transition-colors">北科霓享塔羅社</h4>
+                    <p className="text-lg font-bold text-off-white/40 group-hover:text-off-white transition-colors">蠟線礦石手鍊 編織體驗課 課堂講師</p>
                   </div>
 
                   {/* Current: 卓蘭 */}
@@ -428,8 +448,8 @@ export default function App() {
                       <div className="w-2 h-2 rounded-full bg-gold" />
                     </div>
                     <span className="text-gold font-mono text-sm tracking-widest">2025 - 至今</span>
-                    <h4 className="text-lg md:text-2xl font-bold mt-2">國立卓蘭高級中等學校</h4>
-                    <p className="text-gold/80 text-sm md:text-base font-medium">高中部熱舞社 社團活動指導老師</p>
+                    <h4 className="text-gold/80 text-sm md:text-base font-medium mt-2">國立卓蘭高級中等學校</h4>
+                    <p className="text-lg md:text-2xl font-bold">高中部熱舞社 社團活動指導老師</p>
                   </div>
 
                   {/* Current: 丞筠 */}
@@ -438,8 +458,8 @@ export default function App() {
                       <div className="w-2 h-2 rounded-full bg-gold" />
                     </div>
                     <span className="text-gold font-mono text-sm tracking-widest">2026 - 至今</span>
-                    <h4 className="text-lg md:text-2xl font-bold mt-2">丞筠科研生技股份有限公司</h4>
-                    <p className="text-gold/80 text-sm md:text-base font-medium">行銷設計專員</p>
+                    <h4 className="text-gold/80 text-sm md:text-base font-medium mt-2">丞筠科研生技股份有限公司</h4>
+                    <p className="text-lg md:text-2xl font-bold">行銷設計專員</p>
                   </div>
                 </div>
               </div>
@@ -458,9 +478,6 @@ export default function App() {
                     <h4 className="text-lg font-bold mt-2">國立臺北科技大學</h4>
                     <p className="text-off-white/60 text-sm mb-4">互動設計系</p>
                     <ul className="text-xs text-off-white/40 space-y-1 list-disc pl-4">
-                      <li>北科熱舞社 Jazz組教學長</li>
-                      <li>Hug全國舞蹈大賽 北科熱舞總召</li>
-                      <li>北科霓享塔羅社 美宣長 / 攝影長</li>
                       <li>2023 台灣燈會在台北 濾鏡APP製作</li>
                       <li>2023 金典新秀贊助特別獎 － 繭：形而上</li>
                     </ul>
