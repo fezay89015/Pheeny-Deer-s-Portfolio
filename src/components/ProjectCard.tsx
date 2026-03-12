@@ -17,7 +17,7 @@ export const ProjectCard = memo(({ project, onClick, onMouseEnter }: ProjectCard
       layoutId={`project-${project.id}`}
       onClick={() => onClick(project)}
       onMouseEnter={onMouseEnter}
-      className="group relative overflow-hidden rounded-2xl bg-teal-dark/40 cursor-pointer border border-white/10 aspect-[4/5] sm:aspect-video"
+      className="group relative overflow-hidden rounded-xl bg-teal-dark/40 cursor-pointer border border-white/10 aspect-[4/5] sm:aspect-video"
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
     >

@@ -3,8 +3,6 @@ import { motion, AnimatePresence } from 'motion/react';
 import { 
   Instagram, 
   Mail, 
-  Phone, 
-  MapPin, 
   BookOpen, 
   Briefcase, 
   GraduationCap, 
@@ -37,6 +35,12 @@ const SixPointStar = memo(({ size = 20, className = "" }: { size?: number; class
 const DiamondDot = memo(({ size = 6, className = "" }: { size?: number; className?: string }) => (
   <svg width={size} height={size} viewBox="0 0 8 8" fill="currentColor" className={className}>
     <path d="M4 0 L8 4 L4 8 L0 4 Z" />
+  </svg>
+));
+
+const RoundedCrossStar = memo(({ size = 20, className = "" }: { size?: number; className?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path d="M12 0C12 8 16 12 24 12C16 12 12 16 12 24C12 16 8 12 0 12C8 12 12 8 12 0Z" />
   </svg>
 ));
 
@@ -241,8 +245,8 @@ export default function App() {
               斐尼鹿 作品集
             </p>
 
-            <p className="text-base md:text-lg text-off-white/60 tracking-[0.4em] font-light">
-              動態影像 ‧ 插畫 ‧ 平面設計 ‧ 蠟線編織
+            <p className="text-base md:text-lg text-off-white/60 tracking-[0.4em] font-light px-6 md:px-0">
+              動態影像 ‧ 插畫 ‧ 平面設計
             </p>
           </motion.div>
 
@@ -259,12 +263,28 @@ export default function App() {
         </div>
       </section>
 
+      {/* Showreels Section */}
+      <section id="showreels" className="py-32 px-6 max-w-7xl mx-auto relative">
+        <div className="flex flex-col items-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-widest uppercase mb-4">Showreels</h2>
+          <div className="w-12 h-1 bg-gold rounded-full" />
+        </div>
+        <div className="relative aspect-video rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-black/20 group">
+          <iframe
+            src="https://www.youtube.com/embed/f6VYCaD-5NA"
+            className="absolute inset-0 w-full h-full"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+      </section>
+
       {/* Works Section */}
       <section id="works" className="px-6 py-40 max-w-7xl mx-auto relative">
         <StarDecorations stars={portfolioStars} />
         <div className="flex flex-col items-center mb-16 gap-8">
           {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-3">
+                <div className="flex flex-wrap justify-center gap-3">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -275,8 +295,8 @@ export default function App() {
                 className={cn(
                   "px-6 py-2 rounded-full text-xs font-bold transition-all duration-300 border uppercase tracking-widest",
                   activeCategory === cat
-                    ? "bg-gold text-teal-dark border-gold shadow-lg shadow-gold/20"
-                    : "bg-transparent text-off-white/40 border-white/10 hover:border-gold/40 hover:text-gold"
+                    ? "bg-gold text-teal-dark border-gold shadow-lg shadow-gold/40"
+                    : "bg-white/5 text-off-white/60 border-white/20 hover:border-gold/60 hover:text-gold hover:bg-white/10"
                 )}
               >
                 {cat}
@@ -287,7 +307,7 @@ export default function App() {
 
         <motion.div 
           layout
-          className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8"
+          className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-6"
         >
           <AnimatePresence mode="popLayout">
             {displayedProjects.map((project) => (
@@ -341,7 +361,7 @@ export default function App() {
                   />
                 </div>
                 <div className="absolute -bottom-4 -right-4 w-16 h-16 md:w-20 md:h-20 bg-gold rounded-full flex items-center justify-center shadow-xl border-4 border-teal-bg">
-                  <Star className="w-8 h-8 md:w-10 md:h-10 text-teal-dark fill-teal-dark" />
+                  <RoundedCrossStar size={32} className="text-teal-dark" />
                 </div>
               </motion.div>
 
@@ -381,7 +401,7 @@ export default function App() {
                     我是陳宏威。高中開始對動畫產生興趣，大學進入北科大互動系後正式學習 After Effects。曾於台北擔任一年動態影像設計師，負責 2D Motion Graphics 與影音特效後製，這段經歷讓我熟悉了從腳本到製作實務上的專案節奏，也更清楚如何處理畫面中的細節。
                   </p>
                   <p>
-                    動態設計、插畫是我最習慣的表達形式。設計專業外，熱舞社對律動和音樂拆解的理解、塔羅神祕學對人事物的觀察力、手作編織對細膩手工的堅持，這些元素都是我創作的一部分，讓我能從不同維度切入創作的可能性。
+                    動態設計、插畫是我最習慣的表達形式。設計專業外，在跳舞對律動和音樂拆解的理解、在塔羅神祕學對人事物的觀察力、在手作編織對細膩手工的耐心，這些元素都是我創作的一部分，讓我能從不同維度切入創作的可能性。
                   </p>
                   <p>
                     目前我在一間藝術餐廳任職行銷設計，工作之餘正著手規劃原創角色「斐尼鹿」的系列插畫，並嘗試與編織等手作形式結合。未來我會繼續在動態影像領域深耕，透過各種形式的美，創造能讓人感受到療癒的作品。
@@ -407,48 +427,48 @@ export default function App() {
                   
                   {/* Past: 北科熱舞 */}
                   <div className="relative pl-12 group">
-                    <div className="absolute left-[-17px] top-2 w-8 h-8 rounded-full bg-teal-bg border border-gold/30 group-hover:border-gold flex items-center justify-center z-10 transition-colors">
-                      <div className="w-2 h-2 rounded-full bg-gold/30 group-hover:bg-gold transition-colors" />
+                    <div className="absolute left-[-17px] top-2 w-8 h-8 rounded-full bg-teal-bg border border-gold/75 group-hover:border-gold flex items-center justify-center z-10 transition-colors">
+                      <div className="w-2 h-2 rounded-full bg-gold/75 group-hover:bg-gold transition-colors" />
                     </div>
-                    <span className="text-gold/40 group-hover:text-gold font-mono text-xs tracking-widest transition-colors">2020</span>
-                    <h4 className="text-gold/40 group-hover:text-gold/80 text-sm font-medium mt-2 transition-colors">北科熱舞社</h4>
-                    <p className="text-lg font-bold text-off-white/40 group-hover:text-off-white transition-colors">Jazz組教學長 / Hug全國舞蹈大賽 總召</p>
+                    <span className="text-gold/60 group-hover:text-gold font-mono text-xs tracking-widest transition-colors">2020</span>
+                    <h4 className="text-gold/60 group-hover:text-gold/80 text-sm font-medium mt-2 transition-colors">北科熱舞社</h4>
+                    <p className="text-lg font-bold text-off-white/90 group-hover:text-off-white transition-colors">Jazz組教學長 / Hug全國舞蹈大賽 總召</p>
                   </div>
 
                   {/* Past: 霓享塔羅 */}
                   <div className="relative pl-12 group">
-                    <div className="absolute left-[-17px] top-2 w-8 h-8 rounded-full bg-teal-bg border border-gold/30 group-hover:border-gold flex items-center justify-center z-10 transition-colors">
-                      <div className="w-2 h-2 rounded-full bg-gold/30 group-hover:bg-gold transition-colors" />
+                    <div className="absolute left-[-17px] top-2 w-8 h-8 rounded-full bg-teal-bg border border-gold/75 group-hover:border-gold flex items-center justify-center z-10 transition-colors">
+                      <div className="w-2 h-2 rounded-full bg-gold/75 group-hover:bg-gold transition-colors" />
                     </div>
-                    <span className="text-gold/40 group-hover:text-gold font-mono text-xs tracking-widest transition-colors">2022</span>
-                    <h4 className="text-gold/40 group-hover:text-gold/80 text-sm font-medium mt-2 transition-colors">北科霓享塔羅社</h4>
-                    <p className="text-lg font-bold text-off-white/40 group-hover:text-off-white transition-colors">美宣長 / 攝影長</p>
+                    <span className="text-gold/60 group-hover:text-gold font-mono text-xs tracking-widest transition-colors">2022</span>
+                    <h4 className="text-gold/60 group-hover:text-gold/80 text-sm font-medium mt-2 transition-colors">北科霓享塔羅社</h4>
+                    <p className="text-lg font-bold text-off-white/90 group-hover:text-off-white transition-colors">美宣長 / 攝影長</p>
                   </div>
 
                   {/* Past: 雅米 */}
                   <div className="relative pl-12 group">
-                    <div className="absolute left-[-17px] top-2 w-8 h-8 rounded-full bg-teal-bg border border-gold/30 group-hover:border-gold flex items-center justify-center z-10 transition-colors">
-                      <div className="w-2 h-2 rounded-full bg-gold/30 group-hover:bg-gold transition-colors" />
+                    <div className="absolute left-[-17px] top-2 w-8 h-8 rounded-full bg-teal-bg border border-gold/75 group-hover:border-gold flex items-center justify-center z-10 transition-colors">
+                      <div className="w-2 h-2 rounded-full bg-gold/75 group-hover:bg-gold transition-colors" />
                     </div>
-                    <span className="text-gold/40 group-hover:text-gold font-mono text-xs tracking-widest transition-colors">2024 - 2025</span>
-                    <h4 className="text-gold/40 group-hover:text-gold/80 text-sm font-medium mt-2 transition-colors">雅米創意有限公司</h4>
-                    <p className="text-lg font-bold text-off-white/40 group-hover:text-off-white transition-colors">動畫影像設計師</p>
+                    <span className="text-gold/60 group-hover:text-gold font-mono text-xs tracking-widest transition-colors">2024 - 2025</span>
+                    <h4 className="text-gold/60 group-hover:text-gold/80 text-sm font-medium mt-2 transition-colors">雅米創意有限公司</h4>
+                    <p className="text-lg font-bold text-off-white/90 group-hover:text-off-white transition-colors">動畫影像設計師</p>
                   </div>
 
                   {/* Past: 北科塔羅講師 */}
                   <div className="relative pl-12 group">
-                    <div className="absolute left-[-17px] top-2 w-8 h-8 rounded-full bg-teal-bg border border-gold/30 group-hover:border-gold flex items-center justify-center z-10 transition-colors">
-                      <div className="w-2 h-2 rounded-full bg-gold/30 group-hover:bg-gold transition-colors" />
+                    <div className="absolute left-[-17px] top-2 w-8 h-8 rounded-full bg-teal-bg border border-gold/75 group-hover:border-gold flex items-center justify-center z-10 transition-colors">
+                      <div className="w-2 h-2 rounded-full bg-gold/75 group-hover:bg-gold transition-colors" />
                     </div>
-                    <span className="text-gold/40 group-hover:text-gold font-mono text-xs tracking-widest transition-colors">2025</span>
-                    <h4 className="text-gold/40 group-hover:text-gold/80 text-sm font-medium mt-2 transition-colors">北科霓享塔羅社</h4>
-                    <p className="text-lg font-bold text-off-white/40 group-hover:text-off-white transition-colors">蠟線礦石手鍊 編織體驗課 課堂講師</p>
+                    <span className="text-gold/60 group-hover:text-gold font-mono text-xs tracking-widest transition-colors">2025</span>
+                    <h4 className="text-gold/60 group-hover:text-gold/80 text-sm font-medium mt-2 transition-colors">北科霓享塔羅社</h4>
+                    <p className="text-lg font-bold text-off-white/90 group-hover:text-off-white transition-colors">蠟線礦石手鍊 編織體驗課 課堂講師</p>
                   </div>
 
                   {/* Current: 卓蘭 */}
                   <div className="relative pl-12">
-                    <div className="absolute left-[-17px] top-2 w-8 h-8 rounded-full bg-teal-bg border border-gold flex items-center justify-center z-10">
-                      <div className="w-2 h-2 rounded-full bg-gold" />
+                    <div className="absolute left-[-17px] top-2 w-8 h-8 rounded-full bg-teal-bg border border-gold/75 flex items-center justify-center z-10">
+                      <div className="w-2 h-2 rounded-full bg-gold/75" />
                     </div>
                     <span className="text-gold font-mono text-sm tracking-widest">2025 - 至今</span>
                     <h4 className="text-gold/80 text-sm md:text-base font-medium mt-2">國立卓蘭高級中等學校</h4>
@@ -457,8 +477,8 @@ export default function App() {
 
                   {/* Current: 丞筠 */}
                   <div className="relative pl-12">
-                    <div className="absolute left-[-17px] top-2 w-8 h-8 rounded-full bg-teal-bg border border-gold flex items-center justify-center z-10">
-                      <div className="w-2 h-2 rounded-full bg-gold" />
+                    <div className="absolute left-[-17px] top-2 w-8 h-8 rounded-full bg-teal-bg border border-gold/75 flex items-center justify-center z-10">
+                      <div className="w-2 h-2 rounded-full bg-gold/75" />
                     </div>
                     <span className="text-gold font-mono text-sm tracking-widest">2026 - 至今</span>
                     <h4 className="text-gold/80 text-sm md:text-base font-medium mt-2">丞筠科研生技股份有限公司</h4>
@@ -503,27 +523,25 @@ export default function App() {
       {/* Footer */}
       <footer className="bg-teal-dark/40 border-t border-white/5 py-24 px-12">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-16">
-          {/* Left: Description & Social */}
-          <div className="max-w-md space-y-6">
-            <p className="text-off-white/40 text-lg leading-relaxed font-light italic">
+          {/* Left: Description */}
+          <div className="max-w-md">
+            <p className="text-off-white/60 text-lg leading-relaxed font-light">
               每一次意識的跳躍，都是在數位的流光與手作的質地中，編織在森林深處，能讓眾人心靈共振的圖騰。
             </p>
-            <a href="https://www.instagram.com/pheeny_deer" target="_blank" className="inline-flex items-center gap-3 text-off-white/60 hover:text-gold transition-all group">
-              <Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" />
-              <span className="text-sm font-medium tracking-widest">@pheeny_deer</span>
-            </a>
           </div>
 
-          {/* Right: Contact */}
+          {/* Right: Social & Contact */}
           <div className="flex flex-col gap-6 md:items-end">
             <h4 className="text-[10px] font-bold uppercase tracking-[0.4em] text-gold/40">Contact</h4>
-            <div className="flex flex-col gap-3 md:items-end">
-              <a href="mailto:hare2353363@gmail.com" className="text-lg text-off-white/70 hover:text-gold transition-colors font-medium">
-                hare2353363@gmail.com
+            <div className="flex flex-col gap-4 md:items-end">
+              <a href="https://www.instagram.com/pheeny_deer" target="_blank" className="inline-flex items-center gap-4 text-off-white/80 hover:text-gold transition-all group">
+                <Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <span className="text-sm font-medium tracking-widest uppercase">@pheeny_deer</span>
               </a>
-              <p className="text-sm text-off-white/40 tracking-widest">
-                0905981157 ‧ Taichung, Taiwan
-              </p>
+              <a href="mailto:hare2353363@gmail.com" className="inline-flex items-center gap-4 text-off-white/80 hover:text-gold transition-all group">
+                <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <span className="text-sm font-medium tracking-widest lowercase">hare2353363@gmail.com</span>
+              </a>
             </div>
           </div>
         </div>

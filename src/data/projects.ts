@@ -16,7 +16,7 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  {
+  /* {
     id: 'showreel-2024',
     title: '動態影像作品集 Showreel',
     description: '精選 2024 年度的動態影像作品，涵蓋 brand 動畫、插畫動態化與視覺特效實驗。',
@@ -29,7 +29,7 @@ export const projects: Project[] = [
     content: [
       { type: 'video', value: 'https://www.youtube.com/embed/f6VYCaD-5NA' }
     ]
-  },
+  }, */
   /* {
     id: 'treecave-marketing',
     title: '壹陸樹洞慢活藝術餐廳 行銷設計',
