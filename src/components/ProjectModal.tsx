@@ -117,7 +117,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           <div className="md:hidden p-5 bg-teal-dark border-b border-white/5 z-20 shrink-0">
             <div className="flex flex-wrap items-center gap-2 mb-2">
               {project.categories.map((cat, i) => (
-                <span key={i} className="px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider bg-gold/10 border border-gold/20 rounded-full text-gold">
+                <span key={i} className="px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider bg-gold/10 border border-gold/20 rounded-full text-gold">
                   {cat}
                 </span>
               ))}
@@ -334,7 +334,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           <div className="hidden md:flex w-72 lg:w-80 p-8 flex-col bg-teal-dark border-l border-white/5 overflow-y-auto custom-scrollbar shrink-0">
             <div className="flex flex-wrap items-center gap-2 mb-4">
               {project.categories.map((cat, i) => (
-                <span key={i} className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider bg-gold/10 border border-gold/20 rounded-full text-gold">
+                <span key={i} className="px-3 py-1 text-[11px] font-bold uppercase tracking-wider bg-gold/10 border border-gold/20 rounded-full text-gold">
                   {cat}
                 </span>
               ))}

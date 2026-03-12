@@ -38,7 +38,7 @@ export const ProjectCard = memo(({ project, onClick, onMouseEnter }: ProjectCard
       <div className="absolute inset-x-0 bottom-0 p-3 md:p-5 flex flex-col justify-end">
         <div className="flex flex-wrap items-center gap-2 mb-2">
           {project.categories.map((cat, i) => (
-            <span key={i} className="px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider bg-gold text-teal-dark rounded-full">
+            <span key={i} className="px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider bg-gold text-teal-dark rounded-full">
               {cat}
             </span>
           ))}
