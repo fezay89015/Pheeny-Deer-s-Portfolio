@@ -1,5 +1,5 @@
 import { useEffect, useState, memo, useCallback } from 'react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { X, Play, Image as ImageIcon, ExternalLink, Quote } from 'lucide-react';
 import { Project } from '../data/projects';
 import { cn } from '../lib/utils';
@@ -129,7 +129,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
           {/* Media & Mobile Description Area */}
           <div className={cn(
-            "flex-1 overflow-y-auto custom-scrollbar bg-teal-modal",
+            "flex-1 overflow-y-auto overscroll-contain custom-scrollbar bg-teal-modal",
             project.id === 'tianyue-group' ? "p-2 md:p-6" : "p-4 md:p-12"
           )}>
             {/* Mobile-only Description (at the top of scroll) */}
@@ -361,33 +361,42 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
       </motion.div>
 
       {/* Nested Image Lightbox */}
-      {activeLightboxImage && (
-        <div 
-          className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md cursor-zoom-out"
-          onClick={() => setActiveLightboxImage(null)}
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            className="relative max-w-full max-h-full"
-            onClick={(e) => e.stopPropagation()}
+      <AnimatePresence>
+        {activeLightboxImage && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/95 backdrop-blur-md cursor-zoom-out touch-none"
+            onClick={() => setActiveLightboxImage(null)}
           >
-            <button
-              onClick={() => setActiveLightboxImage(null)}
-              className="absolute -top-12 right-0 p-2 text-white/70 hover:text-white transition-colors"
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              className="relative max-w-full max-h-full flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
             >
-              <X className="w-8 h-8" />
-            </button>
-            <img 
-              src={activeLightboxImage} 
-              alt="Enlarged view" 
-              className="max-w-[95vw] max-h-[85vh] object-contain rounded-lg shadow-2xl"
-              referrerPolicy="no-referrer"
-            />
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveLightboxImage(null);
+                }}
+                className="absolute -top-12 right-0 p-2 text-white/70 hover:text-white transition-colors"
+              >
+                <X className="w-8 h-8" />
+              </button>
+              <img 
+                src={activeLightboxImage} 
+                alt="Enlarged view" 
+                className="max-w-[95vw] max-h-[85vh] object-contain rounded-lg shadow-2xl"
+                referrerPolicy="no-referrer"
+              />
+            </motion.div>
           </motion.div>
-        </div>
-      )}
+        )}
+      </AnimatePresence>
     </div>
   );
 }
