@@ -146,7 +146,7 @@ export const projects: Project[] = [
   },
   {
     id: 'neousys-tech',
-    title: '宸曜科技 Neousys Technology 影音作品',
+    title: '宸曜科技 Neousys Technology',
     description: '宸曜科技一系列關於 NVIDIA Jetson 電腦在 ADAS、影像分析及無人系統應用的專業影音展示。',
     type: 'video',
     thumbnail: 'https://img.youtube.com/vi/p97NGfV4yGk/maxresdefault.jpg',
@@ -216,7 +216,6 @@ export const projects: Project[] = [
     date: '2024-12-15',
     content: [
       { type: 'video', value: 'https://www.youtube.com/embed/Lz_4Psxoo0k' },
-      { type: 'text', value: '動畫縮圖' },
       { type: 'grid', value: [
         'https://github.com/user-attachments/assets/b8cf1662-e564-47ba-a55b-d02d8312e1a8',
         'https://github.com/user-attachments/assets/e2377876-31e8-4480-bfef-68d3eda759b9',
@@ -388,7 +387,7 @@ export const projects: Project[] = [
   },
   {
     id: '100-design',
-    title: '100 設計：居家生活的解決方案',
+    title: '100 設計：特別企劃影音特效',
     description: '透過俐落的動態特效字卡與視覺節奏，將繁複的居家裝修資訊轉化為精緻且易於吸收的影音內容。',
     type: 'video',
     thumbnail: 'https://img.youtube.com/vi/33LLZoGx-cc/maxresdefault.jpg',
@@ -397,12 +396,12 @@ export const projects: Project[] = [
     size: 'medium',
     date: '2025-05-22',
     content: [
-      { type: 'video', value: 'https://www.youtube.com/embed/33LLZoGx-cc' },
       { type: 'text', value: '小宅救星！SHARP左右開冰箱' },
-      { type: 'video', value: 'https://www.youtube.com/embed/FxHzyJHsS04' },
+      { type: 'video', value: 'https://www.youtube.com/embed/33LLZoGx-cc' },
       { type: 'text', value: '威佐開發 EGGER系統板材服務介紹' },
-      { type: 'video', value: 'https://www.youtube.com/embed/RIuZgT3nx0k' },
-      { type: 'text', value: '室內設計案例分享' }
+      { type: 'video', value: 'https://www.youtube.com/embed/FxHzyJHsS04' },
+      { type: 'text', value: '德國美得麗床墊' },
+      { type: 'video', value: 'https://www.youtube.com/embed/RIuZgT3nx0k' }
     ]
   },
   {
@@ -526,7 +525,7 @@ export const projects: Project[] = [
   {
     id: 'university-works',
     title: '【繭:形而上】臺北科技大學108級互動設計系畢業展 宣傳概念影片',
-    description: '記錄我動畫之路起點的選輯。包含了早期對角色敘事、動態節奏的各種嘗試。',
+    description: '互動設計是屬於人類的繭，賦予我們新生。在元宇宙的世界，形體，不再侷限於所見，我們能突破原有的限制，獲得全新的感官體驗。',
     type: 'video',
     thumbnail: 'https://img.youtube.com/vi/RW6ueSqWXqE/maxresdefault.jpg',
     url: 'https://www.youtube.com/embed/RW6ueSqWXqE',
@@ -536,7 +535,6 @@ export const projects: Project[] = [
     content: [
       { type: 'video', value: 'https://www.youtube.com/embed/RW6ueSqWXqE' },
       { type: 'image', value: 'https://github.com/user-attachments/assets/e21aa9d9-85ec-4029-873b-c3015e168f6a' },
-      { type: 'caption', value: '互動設計是屬於人類的繭，賦予我們新生。在元宇宙的世界，形體，不再侷限於所見，我們能突破原有的限制，獲得全新的感官體驗。' },
       { type: 'grid', value: [
         'https://github.com/user-attachments/assets/405ab0ee-6b05-4297-8635-120b1c5430c7',
         'https://github.com/user-attachments/assets/c9f9b19f-975a-450a-9231-b9a2c54c70a1',

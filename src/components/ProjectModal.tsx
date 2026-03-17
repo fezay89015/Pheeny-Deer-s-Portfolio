@@ -193,12 +193,14 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                     ) : item.type === 'video' ? (
                       <div className={cn(
                         "relative rounded-xl overflow-hidden bg-black/20 border border-white/5 shadow-lg",
-                        project.aspectRatio === '9/16' ? "aspect-[9/16]" : "aspect-video"
+                        project.aspectRatio === '9/16' ? "aspect-[9/16]" : (
+                          (item.value as string).endsWith('.mp4') ? "" : "aspect-video"
+                        )
                       )}>
                         {(item.value as string).endsWith('.mp4') ? (
                           <video
                             src={item.value as string}
-                            className="absolute inset-0 w-full h-full object-cover"
+                            className="w-full h-auto block"
                             controls
                             playsInline
                           />
