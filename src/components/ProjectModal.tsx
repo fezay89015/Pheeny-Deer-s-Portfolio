@@ -7,6 +7,7 @@ import { cn } from '../lib/utils';
 const getEmbedUrl = (url: string) => {
   if (!url) return '';
   if (url.includes('youtube.com/embed/')) return url;
+  if (url.includes('player.vimeo.com/video/')) return url;
   
   let videoId = '';
   if (url.includes('youtu.be/')) {
@@ -20,6 +21,15 @@ const getEmbedUrl = (url: string) => {
   if (videoId) {
     return `https://www.youtube.com/embed/${videoId}`;
   }
+
+  // Vimeo handling - Simplified to the core
+  if (url.includes('vimeo.com/')) {
+    const vimeoId = url.split('vimeo.com/')[1].split('?')[0];
+    if (vimeoId) {
+      return `https://player.vimeo.com/video/${vimeoId}`;
+    }
+  }
+
   return url;
 };
 
@@ -52,7 +62,6 @@ const LoadedImage = memo(({ src, alt, className, priority = false }: { src: stri
           isLoaded ? "opacity-100 scale-100 blur-0" : "opacity-0 scale-105 blur-2xl"
         )}
         onLoad={() => setIsLoaded(true)}
-        referrerPolicy="no-referrer"
         decoding="async"
       />
     </div>
@@ -183,12 +192,12 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                         </div>
                       </div>
                     ) : item.type === 'divider' ? (
-                      <div className="py-8 flex items-center gap-4">
-                        <div className="h-px flex-1 bg-white/10" />
-                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold/60 whitespace-nowrap">
+                      <div className="pt-16 pb-10 flex items-center gap-6">
+                        <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+                        <span className="text-xs md:text-sm font-black uppercase tracking-[0.3em] text-gold whitespace-nowrap drop-shadow-[0_0_8px_rgba(212,175,55,0.3)]">
                           {item.value}
                         </span>
-                        <div className="h-px flex-1 bg-white/10" />
+                        <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
                       </div>
                     ) : item.type === 'video' ? (
                       <div className={cn(
@@ -282,20 +291,20 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                       <div className={cn(
                         "bg-white/[0.05] rounded-lg border border-white/10 backdrop-blur-sm relative overflow-hidden group transition-all",
                         index === 0 ? "mt-0" : (
-                          (item.type === 'caption' && project.content[index-1]?.type === 'caption') ? "mt-2" : "mt-12"
+                          (item.type === 'caption' && (project.content[index-1]?.type === 'caption' || project.content[index-1]?.type === 'divider')) ? "mt-2" : "mt-10"
                         ),
                         item.type === 'text' ? "py-5 px-7 mb-4" : "py-4 px-6 mb-2"
                       )}>
                         <div className={cn(
                           "absolute top-0 left-0 h-full bg-gold transition-colors",
-                          item.type === 'text' ? "w-2.5" : "w-1.5"
+                          item.type === 'text' ? "w-2.5" : "w-2"
                         )} />
                         {item.type === 'text' && (
                           <Quote className="absolute top-3 right-5 w-8 h-8 text-gold/10 opacity-30" />
                         )}
                         <p className={cn(
                           "text-off-white tracking-wide relative z-10 leading-relaxed",
-                          item.type === 'text' ? "text-xl font-bold" : "text-[14px] font-normal opacity-80"
+                          item.type === 'text' ? "text-xl font-bold" : "text-[15px] font-medium opacity-95"
                         )}>
                           {item.value}
                         </p>

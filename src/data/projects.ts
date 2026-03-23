@@ -30,7 +30,7 @@ export const projects: Project[] = [
       { type: 'video', value: 'https://www.youtube.com/embed/f6VYCaD-5NA' }
     ]
   }, */
-  /* {
+  {
     id: 'treecave-marketing',
     title: '壹陸樹洞慢活藝術餐廳 行銷設計',
     description: '為壹陸樹洞慢活藝術餐廳打造的全方位行銷設計，涵蓋實體刊物與線上社群內容，展現溫暖的手帳插畫風格。',
@@ -40,25 +40,30 @@ export const projects: Project[] = [
     size: 'large',
     date: '2026-03-30',
     content: [
-      { type: 'text', value: '實體刊物區' },
-      { type: 'caption', value: '餐廳菜單設計 (預留空間)' },
-      { type: 'caption', value: '小廚師活動 DM設計 (預留空間)' },
+      { type: 'divider', value: '實體刊物區' },
+      { type: 'caption', value: '餐廳菜單' },
+      { type: 'image', value: 'https://github.com/user-attachments/assets/c7e1b42c-4714-4edf-acc8-ea31bf4da763' },
+      { type: 'caption', value: '小廚師活動 DM' },
+      { type: 'image', value: 'https://github.com/user-attachments/assets/243b7eb0-c39a-47c5-be0a-59fdd6d31827' },
       { type: 'divider', value: '線上社群區' },
-      { type: 'caption', value: '新年特輯 餐廳佈置展示Reels' },
-      { type: 'video', value: 'https://www.instagram.com/reel/DUaYttGkugp/embed/' },
-      { type: 'caption', value: '新年特輯 果我好運轉盤Reels' },
-      { type: 'grid', value: [
-        'https://www.instagram.com/reel/DUz-lyaknJI/embed/',
-        'https://www.instagram.com/reel/DU92TkKkg5A/embed/',
-        'https://www.instagram.com/reel/DVNv7a3ksvj/embed/'
+      { type: 'caption', value: '【2026春節系列】餐廳佈置宣傳片' },
+      { type: 'video', value: 'https://vimeo.com/1175960157' },
+      { type: 'caption', value: '【2026春節系列】馬年好運轉盤' },
+      { type: 'video', value: 'https://vimeo.com/1176203738' },
+      { type: 'video', value: 'https://vimeo.com/1176204278' },
+      { type: 'video', value: 'https://vimeo.com/1176204315' },
+      { type: 'caption', value: '社群菜單與貼文設計' },
+      { type: 'row', value: [
+        'https://github.com/user-attachments/assets/cb8ed3d8-c329-42b7-b109-af8485862189',
+        'https://github.com/user-attachments/assets/a7b8d9db-2e9f-46b8-850f-8f1a558aa2c9'
       ]},
-      { type: 'caption', value: '限時動態設計，以手帳插畫風格繪製限動' },
-      { type: 'grid', value: [
+      { type: 'caption', value: '限時動態設計' },
+      { type: 'row', value: [
         'https://github.com/user-attachments/assets/0cb0e4a9-13b0-4470-8870-85e22063153f',
         'https://github.com/user-attachments/assets/d5c80683-44be-49d1-b71f-fa004a1127df'
       ]}
     ]
-  }, */
+  },
   {
     id: 'house-unboxing',
     title: '早知道就買這間房 建案開箱短影音',
